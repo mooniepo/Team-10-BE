@@ -63,7 +63,7 @@ const getAllOrders = catchAsyncError(async (req, res, next) => {
   res.status(200).json({ message: "success", orders });
 });
 
-const createCheckOutSession = catchAsyncError(async (req, res, next) => {
+ const createCheckOutSession = catchAsyncError(async (req, res, next) => {
   let cart = await cartModel.findById(req.params.id);
   if(!cart) return next(new AppError("Cart was not found",404))
 
@@ -88,8 +88,8 @@ const createCheckOutSession = catchAsyncError(async (req, res, next) => {
       },
     ],
     mode: "payment",
-    success_url: "https://github.com/AbdeIkader",
-    cancel_url: "https://www.linkedin.com/in/abdelrahman-abdelkader-259781215/",
+    success_url: " ",
+    cancel_url: " ",
     customer_email: req.user.email,
     client_reference_id: req.params.id,
     metadata: req.body.shippingAddress,
@@ -124,7 +124,6 @@ const createOnlineOrder = catchAsyncError(async (request, response) => {
   }
 });
 
-//https://ecommerce-backend-codv.onrender.com/api/v1/orders/checkOut/6536c48750fab46f309bb950
 
 
 async function card (e,res){

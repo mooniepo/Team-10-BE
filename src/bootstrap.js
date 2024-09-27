@@ -12,16 +12,16 @@ import commentRouter from "./modules/comment/comment.routes.js";
 import { AppError } from "./utils/AppError.js";
 
 export function bootstrap(app) {
-  app.use("/api/v1/products", productRouter);
-  app.use("/api/v1/brands", brandRouter);
-  app.use("/api/v1/users", userRouter);
-  app.use("/api/v1/auth", authRouter);
-  app.use("/api/v1/review", reviewRouter);
-  app.use("/api/v1/address", addressRouter);
-  app.use("/api/v1/coupons", couponRouter);
-  app.use("/api/v1/carts", cartRouter);
-  app.use("/api/v1/orders", orderRouter);
-  app.use("/api/v1/comments", commentRouter);
+  app.use("/team10/api/products", productRouter);
+  app.use("/team10/api/brands", brandRouter);
+  app.use("/team10/api/users", userRouter);
+  app.use("/team10/api/auth", authRouter);
+  app.use("/team10/api/review", reviewRouter);
+  app.use("/team10/api/address", addressRouter);
+  app.use("/team10/api/coupons", couponRouter);
+  app.use("/team10/api/carts", cartRouter);
+  app.use("/team10/api/orders", orderRouter);
+  app.use("/team10/api/comments", commentRouter);
 
   app.all("*", (req, res, next) => {
     next(new AppError("Endpoint was not found", 404));
